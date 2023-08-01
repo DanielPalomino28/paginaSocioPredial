@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Inicio de Sesión</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="style.css">
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+	<style>
+		.container {
+			max-width: 400px;
+			margin: 0 auto;
+			padding: 20px;
+		}
+		.container h1 {
+			text-align: center;
+		}
+		.container label {
+			display: block;
+			margin-bottom: 5px;
+			position: relative;
+		}
+		.container input[type="text"],
+		.container input[type="password"] {
+			width: 100%;
+			padding: 10px;
+			margin-bottom: 10px;
+		}
+		.container .toggle-password {
+			position: absolute;
+			top: 50%;
+			right: 0;
+			transform: translateY(-50%);
+			cursor: pointer;
+		}
+	</style>
+	<script>
+		function togglePassword() {
+			var passwordInput = document.getElementById("contrasena");
+			var eyeIcon = document.getElementById("eye-icon");
+			
+			if (passwordInput.type === "password") {
+				passwordInput.type = "text";
+				eyeIcon.classList.remove("fa-eye");
+				eyeIcon.classList.add("fa-eye-slash");
+			} else {
+				passwordInput.type = "password";
+				eyeIcon.classList.remove("fa-eye-slash");
+				eyeIcon.classList.add("fa-eye");
+			}
+		}
+	</script>
+</head>
+<body>
+	<div class="container">
+		<h1>Iniciar Sesión</h1>
+		<form action="login.php" method="POST">
+			<label for="nombre_usuario">Usuario:</label>
+			<input type="text" name="nombre_usuario" required>
+			<label for="contrasena">Contraseña:
+				<input type="password" name="contrasena" id="contrasena" required>
+				<i class="fas fa-eye toggle-password" id="eye-icon" onclick="togglePassword()"></i>
+			</label>
+			<input type="submit" value="Iniciar Sesión">
+		</form>
+	</div>	
+</body>
+</html>
+
+
+
